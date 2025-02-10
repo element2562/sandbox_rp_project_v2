@@ -247,18 +247,9 @@
             "go": "b5d66b41-0c48-4577-9ba8-1a942443089d"
           },
           "SpawnPoints": [
-            {
-              "_type": "gameobject",
-              "go": "87e15465-1a13-44cb-89ce-b726d8d1edce"
-            },
-            {
-              "_type": "gameobject",
-              "go": "87e15465-1a13-44cb-89ce-b726d8d1edce"
-            },
-            {
-              "_type": "gameobject",
-              "go": "87e15465-1a13-44cb-89ce-b726d8d1edce"
-            }
+            null,
+            null,
+            null
           ],
           "StartServer": true
         }
@@ -295,32 +286,6 @@
       ]
     },
     {
-      "__guid": "87e15465-1a13-44cb-89ce-b726d8d1edce",
-      "Flags": 0,
-      "Name": "Map",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.MapInstance",
-          "__guid": "8e749247-97d4-46d1-a27b-7a34ff122f75",
-          "__version": 1,
-          "EnableCollision": true,
-          "MapName": "facepunch.flatgrass",
-          "NoOrigin": false,
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnMapLoaded": null,
-          "OnMapUnloaded": null,
-          "UseMapFromLaunch": false
-        }
-      ],
-      "Children": []
-    },
-    {
       "__guid": "66ad379a-abb9-4cda-8348-3535d203f999",
       "Flags": 0,
       "Name": "usp_groundmodel",
@@ -348,6 +313,32 @@
       "Enabled": true,
       "__Prefab": "prefabs/food/pizza.prefab",
       "__PrefabVariables": {}
+    },
+    {
+      "__guid": "ed69ab15-db32-4a81-8d2f-231d06cea042",
+      "Flags": 0,
+      "Name": "Map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "cb221adb-ff73-4562-9e07-5833a550aa92",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "smashy.rp_downtown_v2",
+          "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
     }
   ],
   "SceneProperties": {

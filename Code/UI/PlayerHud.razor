@@ -10,36 +10,30 @@
 }
 
 <root class="player-hud">
-    <div class="hudItem">
-        <p>❤️</p>
-        <div class="health-bar">
-            <div class="health-fill"
-                 style="width:@(Math.Clamp((_playerHealthController.Health / 100f) * 100f, 0f, 100f))%;">
-                <!-- Place the health text *inside* the fill -->
-                <div class="health-text">
-                    <p>@(_playerHealthController.Health > 0 ? $"{_playerHealthController.Health}%" : "")</p>
-                </div>
-            </div>
+    <!-- Health Panel (Revised) -->
+    <div class="health-panel">
+        <div class="health-icon">❤️</div>
+        <div class="text">
+            <p class="label">Health</p>
+            <p class="value">@(_playerHealthController.Health > 0 ? $"{_playerHealthController.Health}%" : "0%")</p>
         </div>
     </div>
-    <div class="hudItem">
-        <p>💼</p>
-        <div class="jobDiv">
-            <div class="jobFill" style="width: 100%">
-                <div class="jobText">
-                    <p>@(_playerJobController.CurrentJob?.Name ?? "Unemployed")</p>
-                </div>
-            </div>
+
+    <!-- Job Panel -->
+    <div class="job-panel">
+        <div class="icon">💼</div>
+        <div class="text">
+            <p class="label">Job</p>
+            <p class="value">@(_playerJobController.CurrentJob?.Name ?? "Unemployed")</p>
         </div>
     </div>
-    <div class="hudItem">
-        <p>💰</p>
-        <div class="moneyDiv">
-            <div class="moneyFill" style="width: 100%">
-                <div class="moneyText">
-                    <p>$@(_playerMoneyController.Money)</p>
-                </div>
-            </div>
+
+    <!-- Money Panel -->
+    <div class="money-panel">
+        <div class="icon">💰</div>
+        <div class="text">
+            <p class="label">Money</p>
+            <p class="value">$@(_playerMoneyController.Money)</p>
         </div>
     </div>
 </root>
