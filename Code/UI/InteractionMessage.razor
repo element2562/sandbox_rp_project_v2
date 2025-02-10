@@ -1,0 +1,17 @@
+@using Sandbox.UI
+@inherits PanelComponent
+
+<root>
+    @if (!Network.IsProxy && _interactionController != null && _interactionController.ShowInteractionMessage)
+    {
+        <div class="interaction-message @(_interactionController.ShowInteractionMessage ? "show" : "")">
+            <p>@_interactionController.InteractionText</p>
+        </div>
+    }
+</root>
+
+@code {
+    [Property] private PlayerInteractionController _interactionController;
+	
+    protected override int BuildHash() => System.HashCode.Combine(_interactionController.ShowInteractionMessage, _interactionController.InteractionText);
+}

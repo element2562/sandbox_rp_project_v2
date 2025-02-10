@@ -1,0 +1,29 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+@if (Network.IsProxy) return;
+<root class="@(_playerHealthController.IsDead ? "visible" : "")">
+        <div class="title">
+            <p>You Are Dead.</p>
+            <p>Killed by @(_playerHealthController.KilledByName)</p>
+            @if (_playerHealthController.SecondsUntilRespawn > 0)
+            {
+                <p>You can respawn in @(_playerHealthController.SecondsUntilRespawn) seconds.</p>
+            }
+            else
+            {
+                <p>Press "Space" to respawn.</p>
+            }
+        </div>
+</root>
+
+@code {
+    [Property] private PlayerHealthController _playerHealthController;
+
+    /// <summary>
+    /// The hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(_playerHealthController.IsDead, _playerHealthController.SecondsUntilRespawn, _playerHealthController.KilledByName);
+}

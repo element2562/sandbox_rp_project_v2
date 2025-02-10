@@ -1,0 +1,56 @@
+@using Sandbox.UI
+@using System.Threading.Tasks;
+@inherits PanelComponent
+
+<root>
+    @if (Messages.Count > 0)
+    {
+        <div class="message-display">
+            @foreach (var message in Messages)
+            {
+                <div class="message">@message</div>
+            }
+        </div>
+    }
+</root>
+
+@code {
+    public static MessageDisplay Instance { get; private set; }
+
+    private Queue<string> Messages = new();
+
+    public MessageDisplay()
+    {
+        Instance = this;
+    }
+
+    /// <summary>
+    /// Displays a new message on the screen.
+    /// </summary>
+    public void ShowMessage(string message)
+    {
+        Messages.Enqueue(message);
+
+        // Limit the number of messages displayed
+        if (Messages.Count > 5)
+        {
+            Messages.Dequeue();
+        }
+
+        StateHasChanged();
+
+        // Automatically remove the message after 5 seconds
+        _ = RemoveMessageAfterDelay(message, 5f);
+    }
+
+    private async Task RemoveMessageAfterDelay(string message, float delay)
+    {
+        await GameTask.DelaySeconds(delay);
+
+        if (Messages.Contains(message))
+        {
+            Messages.Dequeue();
+            StateHasChanged();
+        }
+    }
+}

@@ -1,0 +1,94 @@
+JobMenu {
+	z-index: 999;
+	height: 100vh;
+	width: 100vw;
+	align-items: center;
+	justify-content: center;
+
+	.job-menu {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 16px;
+		width: 50%;
+		padding: 40px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow for focus */
+		pointer-events: all;
+
+		.title {
+			font-size: 36px;
+			font-family: "Poppins", sans-serif;
+			font-weight: bold;
+			color: #ffffff;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+
+		.job-list {
+			display: flex;
+			flex-direction: column;
+			gap: 20px; /* Space between job cards */
+			width: 100%; /* Take full width */
+			padding: 10px;
+			max-height: 500px; /* Scrollable for overflow */
+			overflow-y: scroll;
+		}
+
+		.job-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #555; /* Slightly lighter background for job cards */
+			opacity: 0.8;
+			padding: 20px;
+			border-radius: 12px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			color: #ffffff;
+
+			.job-details {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+
+				.job-name {
+					font-size: 24px; /* Emphasize job name */
+					font-weight: bold;
+					color: #ffffff;
+					margin: 0;
+				}
+
+				.job-description {
+					font-size: 16px; /* Smaller text for details */
+					color: #b0b0b0;
+					margin: 0;
+				}
+
+				.job-salary {
+					font-size: 16px;
+					color: #d1d1d1;
+					margin: 0;
+				}
+			}
+
+			.join-button {
+				background-color: #007bff; /* Modern blue button */
+				color: white;
+				border: none;
+				border-radius: 8px;
+				padding: 12px 25px;
+				font-size: 18px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+
+				&:hover {
+					background-color: #0056b3; /* Darker green on hover */
+				}
+
+				&:active {
+					transform: scale(0.95); /* Subtle press effect */
+				}
+			}
+		}
+	}
+}

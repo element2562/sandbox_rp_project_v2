@@ -1,0 +1,77 @@
+SpawnMenu {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5); /* Dim the background */
+
+	.spawn-menu {
+		display: flex;
+		flex-wrap: wrap;
+		background: rgba(0, 0, 0, 0.9); /* Slightly darker background */
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+		border-radius: 12px;
+		padding: 16px;
+		color: white;
+		width: 70%; /* Adjust size for larger menus */
+		height: 60%;
+		max-width: 1200px; /* Limit max width */
+		pointer-events: all;
+		position: relative;
+
+		.spawn-menu-header {
+			width: 100%;
+			font-size: 32px;
+			font-family: "Poppins", sans-serif;
+			font-weight: bold;
+			color: #ffffff;
+			margin-bottom: 20px;
+			text-align: center;
+			border-bottom: 2px solid #ffffff;
+			padding-bottom: 10px;
+		}
+
+		.slot {
+			width: 15%; /* Adjust slot size */
+			height: 15%;
+			aspect-ratio: 1 / 1;
+			background-color: #444;
+			border-radius: 10px;
+			margin: 10px;
+			padding: 5px;
+			transition: background-color 0.3s, transform 0.2s;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 8px;
+			opacity: 0.8;
+
+			img {
+				width: 80%;
+				height: auto;
+				border-radius: 5px;
+			}
+
+			p {
+				margin: 0;
+				color: white;
+				font-size: 18px;
+				font-weight: bold;
+				text-align: center;
+			}
+		}
+
+		.slot:hover {
+			background-color: #777;
+			transform: scale(1.1); /* Slightly enlarge on hover */
+			cursor: pointer;
+		}
+
+		.slot.selected {
+			background-color: rgba(255, 255, 255, 0.2);
+			border: 2px solid rgba(255, 255, 255, 0.8);
+		}
+	}
+}

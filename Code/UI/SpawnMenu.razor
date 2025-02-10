@@ -1,0 +1,61 @@
+@using Sandbox
+@using Sandbox.UI
+@using Sandbox.Utilities;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+    @if (_open)
+    {
+        <div class="spawn-menu">
+            <div class="spawn-menu-header">
+                Spawn Menu
+            </div>
+            @foreach (var prefab in _items)
+            {
+                if (prefab.Components.TryGet<InventoryItem>(out InventoryItem item))
+                {
+                    <div class="slot" onclick="@(() => HandleSpawn(item))">
+                        <img src="@item.Icon" alt="@item.Name" />
+                        <p>@item.Name</p>
+                    </div>
+                }
+            }
+        </div>
+    }
+</root>
+
+@code {
+    [Property]
+    private List<GameObject> _items = new List<GameObject>(); // Placeholder for items, will fetch dynamically later
+
+    private bool _open;
+
+    protected override void OnAwake()
+    {
+        // TODO: Load items dynamically
+        // Example: _items = FileSystem.Mounted.ReadAllObjects<GameObject>("path/to/prefabs");
+    }
+
+    protected override void OnUpdate()
+    {
+        _open = Input.Down("Menu"); // Toggle menu visibility with "Q"
+    }
+
+    private void HandleSpawn(InventoryItem item)
+    {
+        var prefab = item.WorldModel;
+
+        if(prefab == null)
+        {
+            Log.Error($"No world model attached to {item.Name}");
+        }
+
+        GameObjectHelper.SpawnPrefabInFrontOfPlayer(prefab);
+    }
+
+    /// <summary>
+    /// Rebuilds the UI when items or menu state changes
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(_items?.Count ?? 0, _open);
+}

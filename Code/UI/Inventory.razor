@@ -1,0 +1,186 @@
+@using Sandbox.UI
+@using Sandbox
+@inherits PanelComponent
+
+<root>
+    @if (Network.IsProxy) return;
+
+    @if (_isOpen)
+    {
+        <div class="inventory">
+            <div class="slots">
+                @for (int i = 0; i < MaxSlots; i++)
+                {
+                    var index = i;
+                    var item = index < _inventory?.Items.Count ? _inventory.Items[index] : null;
+
+                    <div id=@i
+                    class="slot @(SelectedSlot == index || (item != null && Hotbar.Contains(item)) ? "selected" : "")"
+                    @onclick=@(() => SelectSlot(index))
+                    draggable="true">
+                        @if (item != null)
+                        {
+                            <image src="@item.Icon" alt="@item.Name" />
+                            <p>@item.Name</p>
+                        }
+                    </div>
+                }
+            </div>
+
+            <div class="contextMenu">
+                @if (SelectedSlot >= 0 && SelectedSlot < _inventory?.Items.Count)
+                {
+                    var selectedItem = _inventory.Items[SelectedSlot];
+                    <h1>@selectedItem.Name</h1>
+                    <p>@selectedItem.Description</p>
+
+                    @if (Hotbar.Contains(selectedItem))
+                    {
+                        <button class="styled-button" @onclick=@(() => RemoveFromHotbar(selectedItem))>Remove from Hotbar</button>
+                    }
+
+                    @if (selectedItem == _inventory.EquippedItem)
+                    {
+                        <button class="styled-button" @onclick=@(() => HandleUnequip())>Unequip</button>
+                    }
+                    else
+                    {
+                        <button class="styled-button" @onclick=@(() => HandleUse(selectedItem))>Use</button>
+                    }
+
+                    <button class="styled-button" @onclick=@(() => HandleDrop(selectedItem))>Drop</button>
+                }
+                else
+                {
+                    <p>No Item Selected</p>
+                }
+            </div>
+        </div>
+    }
+
+    @if (_hotbarOpen)
+    {
+        <div class="hotbar">
+            @for (int i = 0; i < 5; i++)
+            {
+                var index = i;
+                var item = index < Hotbar.Count ? Hotbar[index] : null;
+                <div class="hotbar-slot @(item != null && item == _inventory.EquippedItem ? "selected" : "")">
+                    @if (item != null)
+                    {
+                        <image src="@item.Icon" alt="@item.Name" />
+                        <p>@item.Name</p>
+                    }
+                </div>
+            }
+        </div>
+    }
+</root>
+
+@code {
+    [Property] private InventoryManager _inventory;
+    [Property] private InventoryItem _hands;
+
+    private bool _isOpen;
+    private bool _hotbarOpen;
+    private const int MaxSlots = 20;
+    private int SelectedSlot = -1;
+
+    private float _timer = 0f;
+    private float _hotbarTimer = 2f;
+
+    private List<InventoryItem> Hotbar { get; set; } = new List<InventoryItem>();
+
+    protected override async void OnUpdate()
+    {
+        // Toggle inventory
+        if (Input.Pressed("Inventory"))
+        {
+            _isOpen = !_isOpen;
+            _hotbarOpen = true;
+            _timer = 0; // Reset timer when inventory is toggled
+        }
+
+        // Handle hotbar slot selection
+        for (int i = 0; i < Hotbar.Count; i++)
+        {
+            if (Input.Pressed($"slot{i + 1}")) // Assuming hotbar slots are bound to keys like "slot1", "slot2", etc.
+            {
+                var hotbarItem = Hotbar[i];
+
+                if (hotbarItem != null && hotbarItem != _inventory.EquippedItem)
+                {
+                    _inventory.EquipItem(hotbarItem);
+                    _hotbarOpen = true;
+                    break; // Equip only one item per frame
+                }
+                else if (hotbarItem == _inventory.EquippedItem)
+                {
+                    _inventory.UnequipItem();
+                    break; // Unequip only one item per frame
+                }
+            }
+        }
+
+        // Reset selected slot if inventory is closed
+        if (!_isOpen)
+        {
+            SelectedSlot = -1;
+        }
+
+        // Manage hotbar visibility timer
+        if (!_isOpen && _hotbarOpen)
+        {
+            _timer += Time.Delta;
+
+            if (_timer > _hotbarTimer)
+            {
+                _hotbarOpen = false;
+                _timer = 0;
+            }
+        }
+    }
+
+
+    private void SelectSlot(int slot)
+    {
+        if (slot >= 0 && slot < (_inventory?.Items.Count ?? 0))
+            SelectedSlot = slot;
+        else
+            SelectedSlot = -1;
+    }
+
+    private void HandleUse(InventoryItem item)
+    {
+        _inventory.EquipItem(item);
+        if (!Hotbar.Contains(item))
+        {
+            Hotbar.Add(item);
+        }
+
+        _isOpen = false;
+        SelectedSlot = -1;
+    }
+
+    private void HandleUnequip()
+    {
+        Hotbar.Remove(_inventory.EquippedItem);
+        _inventory.UnequipItem();
+
+        _isOpen = false;
+        SelectedSlot = -1;
+    }
+
+    private void HandleDrop(InventoryItem item)
+    {
+        Hotbar.Remove(item);
+        _inventory.DropItem(item);
+    }
+
+    private void RemoveFromHotbar(InventoryItem item)
+    {
+        Hotbar.Remove(item);
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(_isOpen, _inventory?.Items.Count ?? 0, SelectedSlot, _inventory?.EquippedItem, Hotbar.Count, _hotbarOpen);
+}

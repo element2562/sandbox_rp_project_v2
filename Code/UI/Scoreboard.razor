@@ -1,0 +1,51 @@
+@using Sandbox
+@using Sandbox.UI
+@using Sandbox.Entities;
+@inherits PanelComponent
+
+<root>
+    @if (_isOpen)
+    {
+        <div class="scoreboard">
+            <div class="scoreboard-header">
+                <span>Name</span>
+                <span>Job</span>
+                <span>Kills</span>
+                <span>Deaths</span>
+                <span>Ping</span>
+            </div>
+
+            @foreach (var stats in GetPlayerStats())
+            {
+                <div class="player">
+                    <span>@stats.DisplayName</span>
+                    <span>@(stats.JobName ?? "Unemployed")</span>
+                    <span>@stats.Kills</span>
+                    <span>@stats.Deaths</span>
+                    <span>@stats.Ping</span>
+                </div>
+            }
+        </div>
+    }
+</root>
+
+@code {
+    private bool _isOpen;
+
+    private List<PlayerStats> GetPlayerStats()
+    {
+        var playerStats = Scene.GetAllComponents<PlayerStats>()
+            .OrderByDescending(ps => ps.Kills)
+            .ToList();
+
+        return playerStats;
+    }
+
+    protected override void OnUpdate()
+    {
+        _isOpen = Input.Down("Score");
+    }
+
+    protected override int BuildHash()
+        => System.HashCode.Combine(_isOpen, Connection.All.Count);
+}

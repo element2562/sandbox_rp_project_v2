@@ -1,0 +1,184 @@
+Inventory {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.inventory {
+		display: flex;
+		flex-direction: row;
+		background: rgba(0, 0, 0, 0.8); /* Slight transparency for background */
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		border-radius: 12px;
+		padding: 16px;
+		color: white;
+		height: 60%;
+		width: 60%;
+		pointer-events: all;
+		position: relative;
+		bottom: 10%;
+	}
+
+	.slots {
+		display: flex;
+		flex-wrap: wrap; /* Wrap slots across multiple rows */
+		gap: 10px;
+		flex: 1;
+		height: 100%;
+		width: 60%;
+		border-radius: 10px;
+		overflow-y: scroll;
+		padding: 10px;
+	}
+
+	.slot {
+		width: 20%;
+		height: 20%;
+		max-height: 100%;
+		max-width: 100%;
+		aspect-ratio: 1 / 1;
+		background-color: rgba(85, 85, 85, 0.5); // Semi-transparent background
+		border-radius: 10px;
+		margin: 5px;
+		padding: 5px;
+		transition: background-color 0.3s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		gap: 4px;
+
+		image {
+			width: 100%;
+			height: 100%;
+			opacity: 1; // Fully opaque
+		}
+
+		p {
+			margin: 0;
+			color: white;
+			font-size: 20px;
+			font-weight: bold;
+			opacity: 1; // Fully opaque
+		}
+	}
+
+
+	.slot:hover {
+		background-color: #777;
+		cursor: pointer;
+	}
+
+	.slot.selected {
+		background-color: rgba(255, 255, 255, 0.4);
+		border: 2px solid rgba(255, 255, 255, 0.8);
+	}
+
+	.contextMenu {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		flex: 0.5;
+		padding: 20px;
+		background-color: rgba(50, 50, 50, 0.9);
+		border-radius: 10px;
+		overflow-y: scroll;
+		text-align: center;
+		width: 40%;
+		align-items: center;
+
+		p {
+			margin: 0;
+			font-size: 36px;
+			color: white;
+		}
+
+		h1 {
+			margin: 0;
+			font-size: 48px;
+			font-weight: bold;
+			color: white;
+		}
+
+		.styled-button {
+			padding: 10px 20px;
+			font-size: 32px;
+			color: white;
+			background-color: #007bff;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+
+			&:hover {
+				background-color: #0056b3;
+			}
+		}
+	}
+
+	.hotbar {
+		position: absolute;
+		bottom: 5vh; /* Positioned near the bottom of the screen */
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		flex-direction: row;
+		gap: 1vw; /* Spacing between hotbar slots */
+		padding: 32px;
+		background: rgba(0, 0, 0, 0.9); /* Dark transparent background */
+		border-radius: 10px; /* Rounded corners for the hotbar */
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		width: 30vw;
+		height: 15vh;
+		justify-content: center;
+		align-items: center;
+
+		#hands {
+			margin-right: 50px;
+		}
+
+		.hotbar-slot {
+			width: 20%;
+			height: 20%;
+			aspect-ratio: 1 / 1;
+			background-color: rgba(85, 85, 85, 0.5); // Semi-transparent background
+			border-radius: 10px;
+			margin: 5px;
+			padding: 5px;
+			transition: background-color 0.3s;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			gap: 4px;
+
+			image {
+				width: 100%;
+				height: 100%;
+				opacity: 1; // Fully opaque
+			}
+
+			p {
+				margin: 0;
+				color: white;
+				font-size: 20px;
+				font-weight: bold;
+				opacity: 1; // Fully opaque
+			}
+
+			&.selected {
+				border: 0.2vw solid #00aaff; /* Highlight selected slot */
+				background-color: #444; /* Slightly different color for selected slot */
+			}
+
+			&:hover {
+				background-color: #777; /* Hover effect for hotbar slots */
+				cursor: pointer;
+			}
+		}
+	}
+}

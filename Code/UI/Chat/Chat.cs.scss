@@ -1,0 +1,144 @@
+iconpanel {
+    font-family: "Material Icons";
+}
+
+// Common variables
+$rounding: 4px;
+$blue: #3273eb;
+
+Chat {
+    position: absolute;
+    bottom: 40%;
+    left: 2%;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    width: 505px;
+    max-height: 435px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    pointer-events: none;
+    padding: 12px;
+
+    textentry {
+        transition: opacity 0.1s ease;
+        flex-shrink: 0;
+        min-height: 44px;
+        opacity: 0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        background-color: rgba(#090d10, 0.9);
+        border-radius: $rounding;
+    }
+
+    .placeholder {
+        color: #c0cee7;
+    }
+
+    .content-label {
+        margin-left: 16px;
+    }
+
+    .placeholder,
+    .content-label {
+        color: darken(white, 20%);
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        text-shadow: 2px 2px 1px rgba(black, 0.1);
+        margin-top: 11px;
+    }
+
+    .canvas {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: scroll;
+
+        ChatRow {
+            /* Increased row padding & margin for a bit more space */
+            padding: 6px 12px;
+            margin-bottom: 8px;
+            max-width: 100%;
+            color: white;
+            opacity: 1;
+            flex-shrink: 0;
+            background-color: rgba(#090d10, 0.9);
+            border-radius: $rounding;
+            transition: opacity 0.15s ease;
+
+            .header {
+                flex-shrink: 0;
+                flex-grow: 0;
+                padding-left: 4px;
+                margin-top: 3px;
+                font-weight: 700;
+                /* Increased from 16px to 18px */
+                font-size: 18px;
+                color: $blue;
+                padding-right: 8px;
+                text-shadow: 2px 2px 1px rgba(black, 0.3);
+            }
+
+            .msg {
+                margin-top: 3px;
+                color: #c0cee7;
+                /* Increased from 16px to 18px */
+                font-size: 18px;
+                text-shadow: 2px 2px 1px rgba(black, 0.1);
+            }
+
+            &.info {
+                .header,
+                .msg {
+                    color: darken(#c0cee7, 20%);
+                }
+            }
+
+            img {
+                flex-shrink: 0;
+                height: 30px;
+                width: 30px;
+                border-radius: 100px;
+            }
+
+            &.noname {
+                .name {
+                    display: none;
+                }
+            }
+
+            &.is-lobby,
+            &.friend {
+                .name {
+                    color: #849a74;
+                }
+            }
+
+            &.stale {
+                transition: opacity 1s ease;
+                opacity: 0;
+            }
+        }
+    }
+
+    &.open {
+        pointer-events: all;
+        bottom: 40%;
+        left: 2%;
+        border-radius: $rounding $rounding 0 0;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+
+        textentry {
+            opacity: 1;
+            width: 100%;
+            cursor: text;
+        }
+
+        .canvas {
+            ChatRow {
+                transition: opacity 0.1s ease;
+                opacity: 1;
+            }
+        }
+    }
+}
