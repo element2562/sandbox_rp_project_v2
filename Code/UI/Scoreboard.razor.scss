@@ -1,0 +1,67 @@
+﻿Scoreboard {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.scoreboard {
+		width: 60%;
+		height: 40%;
+		font-family: "Poppins", sans-serif;
+		font-size: 25px;
+		color: #fff;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		padding: 16px;
+		overflow: scroll;
+		/* Common for both header & player spans: center text */
+		.scoreboard-header > span,
+		.player > span {
+			text-align: center;
+		}
+
+		.scoreboard-header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 8px;
+			background-color: #444;
+			opacity: 0.8;
+			padding: 8px;
+			font-weight: bold;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			/* Ensure consistent spacing between columns */
+			> span {
+				/* Default flex basis for all columns */
+				flex: 1;
+				margin: 0 8px;
+			}
+		}
+
+		.player {
+			display: flex;
+			align-items: center;
+			margin-bottom: 8px;
+			background-color: #444;
+			opacity: 0.8;
+
+			> span {
+				flex: 1;
+				margin: 0 8px;
+			}
+		}
+		/* Make the first two columns (Name, Job) larger by doubling their flex */
+		.scoreboard-header > span:nth-child(1),
+		.scoreboard-header > span:nth-child(2),
+		.player > span:nth-child(1),
+		.player > span:nth-child(2) {
+			flex: 2;
+		}
+	}
+}

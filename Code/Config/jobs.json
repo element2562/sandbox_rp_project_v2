@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Police Officer",
+		"description": "Maintains law and order, enforces laws, and ensures the safety of citizens.",
+		"salary": 450
+	},
+	{
+		"name": "Doctor",
+		"description": "Provides medical assistance and treatment to injured or ill citizens.",
+		"salary": 500
+	},
+	{
+		"name": "Firefighter",
+		"description": "Responds to fire emergencies, rescues citizens, and ensures public safety.",
+		"salary": 400
+	},
+	{
+		"name": "Delivery Driver",
+		"description": "Delivers packages and goods to specified locations around the city.",
+		"salary": 250
+	},
+	{
+		"name": "Chef",
+		"description": "Prepares meals and serves customers in restaurants or food establishments.",
+		"salary": 300
+	}
+]

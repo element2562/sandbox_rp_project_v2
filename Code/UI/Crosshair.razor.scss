@@ -1,0 +1,28 @@
+Crosshair {
+	z-index: 0;
+
+	.crosshair {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 10px; /* Adjust size as needed */
+		height: 10px; /* Adjust size as needed */
+		background-color: rgba(255, 255, 255, 0.8); /* Crosshair color */
+		border-radius: 50%; /* Makes the crosshair circular */
+		box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Optional glow effect */
+		pointer-events: none; /* Prevent the crosshair from interfering with clicks */
+	}
+	.hit {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 12px; /* Adjust size as needed */
+		height: 12px; /* Adjust size as needed */
+		background-color: rgba(255, 0, 0, 0.8); /* Crosshair color */
+		border-radius: 50%; /* Makes the crosshair circular */
+		box-shadow: 0 0 8px rgba(255, 0, 0, 0.5); /* Optional glow effect */
+		pointer-events: none; /* Prevent the crosshair from interfering with clicks */
+	}
+}

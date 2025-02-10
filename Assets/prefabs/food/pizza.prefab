@@ -1,0 +1,96 @@
+{
+  "RootObject": {
+    "__guid": "36eee8f3-f627-4ca0-8e1d-7e67d051ff65",
+    "Flags": 0,
+    "Name": "pizza",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.Prop",
+        "__guid": "4c8640e7-fd63-483e-840c-eb47cdb98452",
+        "BodyGroups": 18446744073709551615,
+        "Health": 0,
+        "IsStatic": false,
+        "MaterialGroup": null,
+        "Model": "models/props/pizza/pizza.vmdl",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnPropBreak": null,
+        "OnPropTakeDamage": null,
+        "StartAsleep": false,
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.InventoryItem",
+        "__guid": "c9368b62-b54f-4551-b690-8da7dba68dce",
+        "Description": "Is that sausage or pepperoni? Because my hungry ass would eat just about anything.",
+        "Icon": null,
+        "Name": "Pizza",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "WorldModel": {
+          "_type": "gameobject",
+          "go": "36eee8f3-f627-4ca0-8e1d-7e67d051ff65"
+        }
+      },
+      {
+        "__type": "PickupComponent",
+        "__guid": "e100b9f9-9b2a-4966-8362-3360df8fdb28",
+        "InventoryItem": {
+          "_type": "component",
+          "component_id": "c9368b62-b54f-4551-b690-8da7dba68dce",
+          "go": "36eee8f3-f627-4ca0-8e1d-7e67d051ff65",
+          "component_type": "InventoryItem"
+        },
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null
+      }
+    ],
+    "Children": [],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [
+    "facepunch.pizza#28997"
+  ],
+  "__version": 1
+}

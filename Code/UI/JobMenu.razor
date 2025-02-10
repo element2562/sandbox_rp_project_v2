@@ -1,0 +1,60 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Entities;
+@using System;
+@using System.Collections.Generic;
+@using System.IO;
+@using System.Text.Json;
+@inherits PanelComponent
+@namespace Sandbox
+
+@if (Network.IsProxy) return;
+<root>
+    @if(_open) {
+    <div class="job-menu">
+        <h1 class="title">Job Menu</h1>
+        <div class="job-list">
+            @foreach (var job in _jobs)
+            {
+                <div class="job-item">
+                    <div class="job-details">
+                        <p class="job-name">@job.Name</p>
+                        <p class="job-description">@job.Description</p>
+                        <p class="job-salary">Salary: $@job.Salary</p>
+                    </div>
+                    <button class="join-button" @onclick=@(() => JoinJob(job))>Join</button>
+                </div>
+            }
+        </div>
+    </div>
+    }
+</root>
+
+@code
+{
+    [Property] private PlayerJobController _jobController;
+    private List<Job> _jobs;
+
+    private bool _open = false;
+
+    protected override void OnStart()
+    {
+        var json = FileSystem.Mounted.ReadAllText("Config/jobs.json");
+        _jobs = JsonSerializer.Deserialize<List<Job>>(json);
+    }
+
+    protected override void OnUpdate()
+    {
+        if (Input.Pressed("JobMenu"))
+        {
+            _open = !_open;
+        }
+    }
+
+    private void JoinJob(Job job)
+    {
+        _jobController.SetJob(job);
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(_open, _jobController.CurrentJob);
+}

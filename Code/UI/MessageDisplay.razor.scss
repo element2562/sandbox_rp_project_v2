@@ -1,0 +1,41 @@
+MessageDisplay {
+	width: 100vw;
+	height: 100vh;
+
+
+	.message-display {
+		position: absolute;
+		bottom: 50px; /* Position from the bottom */
+		right: 50px; /* Position from the right */
+		display: flex;
+		flex-direction: column;
+		gap: 15px; /* Larger gap between messages */
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		padding: 15px; /* Increased padding for spacing */
+		border-radius: 10px; /* Slightly more rounded corners */
+		width: 300px; /* Fixed width for consistent alignment */
+	}
+
+	.message {
+		font-family: "Poppins", sans-serif;
+		font-size: 20px; /* Increased font size */
+		color: white;
+		text-align: left; /* Align text to the left */
+		background: rgba(255, 255, 255, 0.15); /* Slightly brighter background */
+		padding: 10px 20px; /* More padding for readability */
+		border-radius: 8px; /* More rounded corners */
+		animation: fadeInOut 5s ease-in-out;
+		background-color: #444;
+		opacity: 0.8;
+
+		@keyframes fadeInOut {
+			0%, 100% {
+				opacity: 0;
+			}
+
+			10%, 90% {
+				opacity: 1;
+			}
+		}
+	}
+}

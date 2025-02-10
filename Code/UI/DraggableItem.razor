@@ -1,0 +1,79 @@
+@using Sandbox;
+@using Sandbox.UI;
+@attribute [StyleSheet]
+@inherits Panel
+@namespace Sandbox
+
+<root>
+    <p>@Message</p>
+</root>
+
+@code {
+    public DraggableItem(Panel parent)
+    {
+        Parent = parent;
+        var size = Parent.Box.Rect.Size;
+        _holdPoint = size / 2;
+
+        SetPositionInScreenPixels(Mouse.Position);
+    }
+
+    private string Message = "hi :)";
+    private Vector2 _velocity = Vector2.Zero;
+    private Vector2 _holdPoint = Vector2.Zero;
+    private Vector2 _lastPosition = Vector2.Zero;
+    private string name;
+    private Texture texture;
+
+    public void SetPosition(Vector2 screenPosition)
+    {
+        // Get the parent's position in screen space
+        var parentScreenPosition = Parent.Box.Rect.TopLeft;
+
+        // Convert the screen position to the parent's local position
+        var localPosition = screenPosition - parentScreenPosition;
+
+        // Apply the local position
+        Style.Left = localPosition.x;
+        Style.Top = localPosition.y;
+    }
+
+    public void SetPositionInScreenPixels(Vector2 v)
+    {
+        var p = v;
+        var parentRect = Parent.Box.Rect;
+
+        p -= parentRect.TopLeft;
+
+        p -= _holdPoint;
+
+        p *= ScaleFromScreen;
+
+        Style.Left = p.x;
+        Style.Top = p.y;
+
+        _lastPosition = v;
+    }
+
+    private void UpdateVelocity(Vector2 delta)
+    {
+        _velocity += delta * 0.02f;
+        _velocity = _velocity.Clamp(-10, 10);
+    }
+
+    public virtual void AddPositionDeltaInScreenPixels(Vector2 d)
+    {
+        UpdateVelocity(d);
+        SetPositionInScreenPixels(_lastPosition + d);
+    }
+
+    private void SetSizeInScreenPixels(Vector2 v)
+    {
+        Style.Width = Length.Pixels(v.x * ScaleFromScreen);
+        Style.Height = Length.Pixels(v.y * ScaleFromScreen);
+    }
+    /// <summary>
+    /// The hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(Message);
+}

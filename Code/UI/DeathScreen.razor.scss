@@ -1,0 +1,33 @@
+DeathScreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+	pointer-events: none; /* Prevent interaction when invisible */
+	opacity: 0; /* Default to hidden */
+	transition: opacity 1s ease-in, opacity 0.5s ease-out; /* Fade-in takes 2s, fade-out takes 0.5s */
+
+	&.visible {
+		opacity: 0.8; /* Fully visible */
+		pointer-events: all; /* Enable interaction when visible */
+	}
+
+	.title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+		width: auto;
+		padding: 20px;
+		font-size: 80px;
+		color: white;
+		background-color: red;
+		border-radius: 20px;
+	}
+}

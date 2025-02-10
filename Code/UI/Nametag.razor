@@ -1,0 +1,22 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+@namespace Sandbox
+
+<root>
+    @if (_playerHealthController.IsDead) return;
+    <div class="title @(Network.IsProxy ? "" : "hidden")">
+        <p>@Network.Owner.DisplayName</p>
+        <p>Health: @_playerHealthController.Health</p>
+    </div>
+</root>
+
+@code
+{
+    [Property] private PlayerHealthController _playerHealthController;
+
+	/// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(_playerHealthController.Health, _playerHealthController.IsDead);
+}
