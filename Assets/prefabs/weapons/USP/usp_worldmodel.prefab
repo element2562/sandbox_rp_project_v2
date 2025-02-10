@@ -1,0 +1,40 @@
+{
+  "RootObject": {
+    "__guid": "28064b98-af00-47fe-a05a-7ac976aec282",
+    "Flags": 0,
+    "Name": "v_usp",
+    "Position": "-705.4296,-783.6007,45.33589",
+    "Scale": "3,3,3",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.Prop",
+        "__guid": "51581184-980a-4373-a3b8-5694e58bc4c0",
+        "BodyGroups": 147,
+        "Health": 0,
+        "IsStatic": false,
+        "MaterialGroup": null,
+        "Model": "models/weapons/sbox_pistol_usp/v_usp.vmdl",
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnPropBreak": null,
+        "OnPropTakeDamage": null,
+        "StartAsleep": false,
+        "Tint": "1,1,1,1"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [
+    "facepunch.v_usp#84434"
+  ],
+  "__version": 1
+}

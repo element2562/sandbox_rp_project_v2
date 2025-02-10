@@ -452,41 +452,14 @@
       "Children": []
     },
     {
-      "__guid": "36eee8f3-f627-4ca0-8e1d-7e67d051ff65",
+      "__guid": "66ad379a-abb9-4cda-8348-3535d203f999",
       "Flags": 0,
-      "Name": "pizza",
-      "Position": "-69.30912,-1132.877,1.412044",
+      "Name": "usp_groundmodel",
+      "Position": "-2.355347,883.1614,0",
+      "Scale": "3,3,3",
       "Enabled": true,
-      "__Prefab": "prefabs/food/pizza.prefab",
+      "__Prefab": "prefabs/weapons/usp/usp_groundmodel.prefab",
       "__PrefabVariables": {}
-    },
-    {
-      "__guid": "240b942d-8b39-4ac4-a2ad-429a72153a90",
-      "Flags": 0,
-      "Name": "pizza_box",
-      "Position": "-97.82385,-1155.706,0.5027781",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.Prop",
-          "__guid": "9c9538f3-afa7-4867-a1d8-e5d1224cde55",
-          "BodyGroups": 18446744073709551615,
-          "Health": 5,
-          "IsStatic": false,
-          "MaterialGroup": null,
-          "Model": "models/sbox_props/pizza_box/pizza_box.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
-        }
-      ]
     }
   ],
   "SceneProperties": {
@@ -518,7 +491,6 @@
   "Title": "minimal",
   "Description": null,
   "__references": [
-    "facepunch.pizza_box#29072",
     "titanovsky.m4a1#53942"
   ],
   "__version": 2

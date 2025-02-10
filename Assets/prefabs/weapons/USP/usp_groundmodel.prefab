@@ -1,22 +1,19 @@
 {
   "RootObject": {
-    "__guid": "fcd87d1b-49d6-4337-b94b-75e1927d4cad",
+    "__guid": "3b712fc3-a94b-467c-9f13-440c58d9988a",
     "Flags": 0,
-    "Name": "m4a1_groundmodel",
+    "Name": "usp_groundmodel",
     "Scale": "3,3,3",
     "Enabled": true,
-    "NetworkMode": 1,
-    "NetworkOrphaned": 3,
-    "OwnerTransfer": 0,
     "Components": [
       {
         "__type": "Sandbox.Prop",
-        "__guid": "c031624b-9cdf-4e43-92e2-173a315f8457",
-        "BodyGroups": 18446744073709551615,
+        "__guid": "a9ccce76-215c-46bd-880b-7f77d24ac1b4",
+        "BodyGroups": 39,
         "Health": 0,
         "IsStatic": false,
         "MaterialGroup": null,
-        "Model": "models/3dmodelscc0/gunsexplosives/m4a1/m4a1.vmdl",
+        "Model": "models/weapons/sbox_pistol_usp/w_usp.vmdl",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
@@ -30,37 +27,33 @@
       },
       {
         "__type": "Sandbox.Entities.Gun",
-        "__guid": "0abf70ff-a604-476f-91e3-edda3015c4bb",
-        "_viewModelIronSightsPosition": "0,5.685,1.9",
-        "_viewModelIronSightsRotation": "0.02617695,0,0,0.9996573",
-        "_viewModelLocalPosition": "4,0,0",
+        "__guid": "5d15b412-8fb1-4074-8068-363443a2331f",
+        "_viewModelIronSightsPosition": "0,0,0",
+        "_viewModelIronSightsRotation": "0,0,0,0",
+        "_viewModelLocalPosition": "0,0,0",
         "_weaponFireTypes": [
-          "Full_Auto",
           "Single"
         ],
-        "BulletPrefab": {
-          "_type": "gameobject",
-          "prefab": "prefabs/weapons/m4a1/m4a1bullet.prefab"
-        },
-        "Description": "A standard assault rifle.",
-        "FireSound": "sounds/m4a1_assault_rifle_s.sound",
-        "HoldType": "Rifle",
-        "Icon": "images/inventory icons/m4a1.png",
-        "MagazineSize": 30,
-        "Name": "M4A1",
+        "BulletPrefab": null,
+        "Description": "A fucking pistol, what did you think it was?",
+        "FireSound": null,
+        "HoldType": "Pistol",
+        "Icon": null,
+        "MagazineSize": 11,
+        "Name": "USP",
         "OnComponentDestroy": null,
         "OnComponentDisabled": null,
         "OnComponentEnabled": null,
         "OnComponentFixedUpdate": null,
         "OnComponentStart": null,
         "OnComponentUpdate": null,
-        "Recoil": 0.02,
-        "ReloadSound": "sounds/m4a1_assault_rifle_r.sound",
+        "Recoil": 0.005,
+        "ReloadSound": null,
         "ReloadTime": 2,
-        "RoundsPerMinute": 950,
+        "RoundsPerMinute": 350,
         "ViewModelPrefab": {
           "_type": "gameobject",
-          "prefab": "prefabs/weapons/m4a1/m4a1 arms.prefab"
+          "prefab": "prefabs/weapons/usp/usp_viewmodelarms.prefab"
         },
         "WeaponMuzzleFlash": {
           "_type": "gameobject",
@@ -68,20 +61,20 @@
         },
         "WorldModel": {
           "_type": "gameobject",
-          "prefab": "prefabs/weapons/m4a1/m4a1_groundmodel.prefab"
+          "prefab": "prefabs/weapons/usp/usp_groundmodel.prefab"
         },
         "WorldModelPrefab": {
           "_type": "gameobject",
-          "prefab": "prefabs/weapons/m4a1/m4a1_worldmodel.prefab"
+          "prefab": "prefabs/weapons/usp/usp_worldmodel.prefab"
         }
       },
       {
         "__type": "PickupComponent",
-        "__guid": "1ccf318b-ade3-4fcb-9169-fd9702613c9a",
+        "__guid": "c2ebc44b-3e17-4f43-911c-4dcd59acadb1",
         "InventoryItem": {
           "_type": "component",
-          "component_id": "0abf70ff-a604-476f-91e3-edda3015c4bb",
-          "go": "fcd87d1b-49d6-4337-b94b-75e1927d4cad",
+          "component_id": "5d15b412-8fb1-4074-8068-363443a2331f",
+          "go": "3b712fc3-a94b-467c-9f13-440c58d9988a",
           "component_type": "Gun"
         },
         "OnComponentDestroy": null,
@@ -124,7 +117,7 @@
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [
-    "titanovsky.m4a1#53942"
+    "facepunch.w_usp#77979"
   ],
   "__version": 1
 }
