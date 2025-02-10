@@ -247,9 +247,14 @@
             "go": "b5d66b41-0c48-4577-9ba8-1a942443089d"
           },
           "SpawnPoints": [
-            null,
-            null,
-            null
+            {
+              "_type": "gameobject",
+              "go": "ba40c4b9-c841-4763-bbcd-e0eb857451ca"
+            },
+            {
+              "_type": "gameobject",
+              "go": "1db6e451-30d3-4569-9485-4e9a1a94048f"
+            }
           ],
           "StartServer": true
         }
@@ -286,35 +291,6 @@
       ]
     },
     {
-      "__guid": "66ad379a-abb9-4cda-8348-3535d203f999",
-      "Flags": 0,
-      "Name": "usp_groundmodel",
-      "Position": "-2.355347,883.1614,0",
-      "Scale": "3,3,3",
-      "Enabled": true,
-      "__Prefab": "prefabs/weapons/usp/usp_groundmodel.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "f24ad627-f708-46a0-8800-36a679484ef1",
-      "Flags": 0,
-      "Name": "m4a1_groundmodel",
-      "Position": "-517.5417,1078.843,33",
-      "Scale": "3,3,3",
-      "Enabled": true,
-      "__Prefab": "prefabs/weapons/m4a1/m4a1_groundmodel.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "9ea53b8a-bab0-40cc-b66d-af867c9bd3ee",
-      "Flags": 0,
-      "Name": "pizza",
-      "Position": "22.95654,702.4451,1",
-      "Enabled": true,
-      "__Prefab": "prefabs/food/pizza.prefab",
-      "__PrefabVariables": {}
-    },
-    {
       "__guid": "ed69ab15-db32-4a81-8d2f-231d06cea042",
       "Flags": 0,
       "Name": "Map",
@@ -339,6 +315,56 @@
         }
       ],
       "Children": []
+    },
+    {
+      "__guid": "f448f338-8d29-46d0-9f13-82d2bdad1109",
+      "Flags": 0,
+      "Name": "SpawnPoints",
+      "Position": "-3354.771,293.1388,931.3101",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "ba40c4b9-c841-4763-bbcd-e0eb857451ca",
+          "Flags": 0,
+          "Name": "SpawnPoint",
+          "Position": "0,253.6083,-126.161",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "435537cd-cd1b-4fd7-88be-660124f5c1fc",
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ]
+        },
+        {
+          "__guid": "1db6e451-30d3-4569-9485-4e9a1a94048f",
+          "Flags": 0,
+          "Name": "SpawnPoint",
+          "Position": "-0.0009765625,-615.4525,-126.1607",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SpawnPoint",
+              "__guid": "62c46319-d229-4161-8e23-ea1e8e64c44b",
+              "Color": "0.8902,0.31765,0.05098,1",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null
+            }
+          ]
+        }
+      ]
     }
   ],
   "SceneProperties": {
