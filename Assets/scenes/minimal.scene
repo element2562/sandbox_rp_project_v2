@@ -265,137 +265,6 @@
       ]
     },
     {
-      "__guid": "83c45982-eb9c-4809-ae9e-8e0d8fe7ef16",
-      "Flags": 0,
-      "Name": "m4a1_groundmodel",
-      "Position": "-43.53369,111.4052,33",
-      "Scale": "3,3,3",
-      "Enabled": true,
-      "NetworkMode": 1,
-      "NetworkOrphaned": 3,
-      "OwnerTransfer": 0,
-      "Components": [
-        {
-          "__type": "Sandbox.Prop",
-          "__guid": "70ebaf47-36a2-4dca-8f36-dbe834fbff18",
-          "BodyGroups": 18446744073709551615,
-          "Health": 0,
-          "IsStatic": false,
-          "MaterialGroup": null,
-          "Model": "models/3dmodelscc0/gunsexplosives/m4a1/m4a1.vmdl",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "OnPropBreak": null,
-          "OnPropTakeDamage": null,
-          "StartAsleep": false,
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "Sandbox.Entities.Gun",
-          "__guid": "e50d8959-8c00-4661-9fb2-8f448377a1b7",
-          "_viewModelIronSightsPosition": "0,5.685,1.9",
-          "_viewModelIronSightsRotation": "0.02617695,0,0,0.9996573",
-          "_viewModelLocalPosition": "4,0,0",
-          "_weaponFireTypes": [
-            "Full_Auto",
-            "Single"
-          ],
-          "BulletPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/weapons/m4a1/m4a1bullet.prefab"
-          },
-          "Description": "A standard assault rifle.",
-          "FireSound": "sounds/m4a1_assault_rifle_s.sound",
-          "HoldType": "Rifle",
-          "Icon": "images/inventory icons/m4a1.png",
-          "MagazineSize": 30,
-          "Name": "M4A1",
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null,
-          "Recoil": 0.02,
-          "ReloadSound": "sounds/m4a1_assault_rifle_r.sound",
-          "ReloadTime": 2,
-          "RoundsPerMinute": 950,
-          "ViewModelPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/weapons/m4a1/m4a1 arms.prefab"
-          },
-          "WeaponMuzzleFlash": {
-            "_type": "gameobject",
-            "prefab": "prefabs/weapons/rifle_muzzleflash.prefab"
-          },
-          "WorldModel": {
-            "_type": "gameobject",
-            "prefab": "prefabs/weapons/m4a1/m4a1_groundmodel.prefab"
-          },
-          "WorldModelPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/weapons/m4a1/m4a1_worldmodel.prefab"
-          }
-        },
-        {
-          "__type": "PickupComponent",
-          "__guid": "930321c8-037a-4276-ac6f-847016eb0e8a",
-          "InventoryItem": {
-            "_type": "component",
-            "component_id": "e50d8959-8c00-4661-9fb2-8f448377a1b7",
-            "go": "83c45982-eb9c-4809-ae9e-8e0d8fe7ef16",
-            "component_type": "Gun"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null
-        },
-        {
-          "__type": "Sandbox.EquipComponent",
-          "__guid": "c48f7560-9da7-4051-b72a-d964f4797916",
-          "InventoryItem": {
-            "_type": "component",
-            "component_id": "e50d8959-8c00-4661-9fb2-8f448377a1b7",
-            "go": "83c45982-eb9c-4809-ae9e-8e0d8fe7ef16",
-            "component_type": "Gun"
-          },
-          "OnComponentDestroy": null,
-          "OnComponentDisabled": null,
-          "OnComponentEnabled": null,
-          "OnComponentFixedUpdate": null,
-          "OnComponentStart": null,
-          "OnComponentUpdate": null
-        }
-      ]
-    },
-    {
-      "__guid": "044489a9-c953-4821-b80f-4d3d47b83a0c",
-      "Flags": 0,
-      "Name": "m4a1_groundmodel (1)",
-      "Position": "61.35823,224.5665,33",
-      "Scale": "3,3,3",
-      "Enabled": true,
-      "__Prefab": "prefabs/weapons/m4a1/m4a1_groundmodel.prefab",
-      "__PrefabVariables": {}
-    },
-    {
-      "__guid": "7db6a03f-0f61-442d-ad4d-8b7a536feaa3",
-      "Flags": 0,
-      "Name": "m4a1_groundmodel (2)",
-      "Position": "124.963,447.2817,33",
-      "Scale": "3,3,3",
-      "Enabled": true,
-      "__Prefab": "prefabs/weapons/m4a1/m4a1_groundmodel.prefab",
-      "__PrefabVariables": {}
-    },
-    {
       "__guid": "d277f03c-721c-459f-a916-60ee7c051280",
       "Flags": 0,
       "Name": "GameHelper",
@@ -460,6 +329,25 @@
       "Enabled": true,
       "__Prefab": "prefabs/weapons/usp/usp_groundmodel.prefab",
       "__PrefabVariables": {}
+    },
+    {
+      "__guid": "f24ad627-f708-46a0-8800-36a679484ef1",
+      "Flags": 0,
+      "Name": "m4a1_groundmodel",
+      "Position": "-517.5417,1078.843,33",
+      "Scale": "3,3,3",
+      "Enabled": true,
+      "__Prefab": "prefabs/weapons/m4a1/m4a1_groundmodel.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "9ea53b8a-bab0-40cc-b66d-af867c9bd3ee",
+      "Flags": 0,
+      "Name": "pizza",
+      "Position": "22.95654,702.4451,1",
+      "Enabled": true,
+      "__Prefab": "prefabs/food/pizza.prefab",
+      "__PrefabVariables": {}
     }
   ],
   "SceneProperties": {
@@ -490,8 +378,6 @@
   "ResourceVersion": 2,
   "Title": "minimal",
   "Description": null,
-  "__references": [
-    "titanovsky.m4a1#53942"
-  ],
+  "__references": [],
   "__version": 2
 }
